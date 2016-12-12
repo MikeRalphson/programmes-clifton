@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+import os
+import json
+import re
+import subprocess
+from string import Template
+
+# component properties
+componentConfigFile = "/etc/bake-scripts/config.json"
+
+# application properties
+appRoot = "/var/www/programmes-clifton-debug"
+xhprofdir = appRoot + "/xhprof"
+nginxConfig = "/etc/nginx/conf.d/webapps/"
+
+def component_config():
+    print "Reading component configurations..."
+
+    if not os.path.isfile(componentConfigFile):
+        raise IOError("MISSING FILE: " + componentConfigFile)
+
+    with open(componentConfigFile, 'r') as f:
+        data = json.load(f)
+        return data
+
+def nginx_config():
+    print "Creating nginx config"
+    config = component_config()
+    configFileName = nginxConfig + config["name"] + ".conf"
+    contents = open(configFileName).read()
+
+    server_append = open(xhprofdir + "/nginx.server.append").read()
+    contents = re.sub('\}.*?$', server_append + "\n}\n", contents)
+
+    php_append = open(xhprofdir + "/nginx.php.append").read()
+    regex = re.compile('(location ~ \\\.php\$ {.*?)}', re.DOTALL)
+    contents = re.sub(regex, "\g<1>\n" + php_append + "\n}\n", contents)
+
+    file_append = open(xhprofdir + "/nginx.file.append").read()
+    contents = contents + "\n" + file_append
+
+    with open(configFileName, 'wt') as config_file:
+        config_file.write(contents)
+
+def mysql_config():
+    print "Configuring MySQL..."
+    subprocess.call(['cp', xhprofdir + "/my.cnf", '/etc/'])
+    subprocess.call(['service', 'mysqld', 'start'])
+    subprocess.call("mysql -u root < " + xhprofdir + "/mysql_setup.sql", shell=True)
+    subprocess.call(['chkconfig', 'mysqld', 'on'])
+
+def other_config():
+    subprocess.call(['rm', '-f', appRoot + "/web/xhprof"])
+    subprocess.call(['ln', '-s' , appRoot + "/xhprof/code", appRoot + "/web/xhprof"])
+    subprocess.call(['cp', xhprofdir + "/40-tideways.ini", '/etc/php.d/'])
+    subprocess.call(['cp', xhprofdir + "/config.php", xhprofdir + "/code/xhprof_lib/"])
+    aws_logs_config_file = "/var/awslogs/etc/awslogs.conf"
+    subprocess.call(['rm', '-f', aws_logs_config_file])
+
+def main():
+    config = component_config()
+    if config["configuration"].has_key("xhprof"):
+        print "Setting up profiler..."
+        nginx_config()
+        mysql_config()
+        other_config()
+
+
+
+if __name__ == '__main__':
+    main()

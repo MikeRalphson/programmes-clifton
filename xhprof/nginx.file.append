@@ -1,0 +1,4 @@
+map $request_uri $xhprof_include {
+    default       /var/www/programmes-clifton-debug/xhprof/code/external/header.php;
+    "~xhprof_html" "";
+}

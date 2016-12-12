@@ -9,7 +9,7 @@ from string import Template
 componentConfigFile = "/etc/bake-scripts/config.json"
 
 # application properties
-appRoot = "/var/www/programmes-clifton"
+appRoot = "/var/www/programmes-clifton-debug"
 
 
 def component_config():

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+if [ ! -e xhprof/code/.git ]; then
+    git clone https://github.com/Tuurlijk/xhprof.git xhprof/code
+    cd xhprof/code
+    git reset --hard 3902c013461a433d322d29f71d239ff74824453a
+fi

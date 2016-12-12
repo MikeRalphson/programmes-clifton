@@ -1,5 +1,5 @@
 {
-    "name": "programmes-clifton",
+    "name": "programmes-clifton-debug",
     "php_version": "7.1",
     "packaging": {
         "type": "pac_nginx",
@@ -12,6 +12,10 @@
             "php71u-mysqlnd",
             "php71u-pecl-apcu",
             "php71u-pdo",
+            "tideways-php",
+            "mysql-server",
+            "mysql",
+            "graphviz",
             "cosmos-ca-chains",
             "cosmos-ca-tools",
             "awslogs",

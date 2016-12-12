@@ -1,0 +1,4 @@
+    location /xhprof/xhprof_html {
+        try_files $uri $uri/ /xhprof/xhprof_html/index.php$is_args$args;
+        index index.php;
+    }
