@@ -33,6 +33,7 @@ services:
         arguments:
             - '@doctrine.orm.default_entity_manager'
             - '@pps.mapper_factory'
+            - '@cache.programmes'
 
     pps.atoz_titles_service:
         class: BBC\ProgrammesPagesService\Service\AtozTitlesService
