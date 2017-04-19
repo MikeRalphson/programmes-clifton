@@ -91,7 +91,7 @@
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bbc/rmp-monitoringhandler.git",
+                "url": "https://github.com/bbc/rmp-monitoringhandler.git",
                 "reference": "6ec092df125a725c680d0dea1fcf6ba93abef1a6"
             },
             "dist": {
@@ -224,13 +224,13 @@
             "version": "dev-redis-service-layer-implementation",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bbc/programmes-pages-service.git",
-                "reference": "aea6e368d564a49bc037ca93cceaf0bc57a114b4"
+                "url": "https://github.com/bbc/programmes-pages-service.git",
+                "reference": "5295773dbf950a6be90ceac42efc02b1f34b7ada"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bbc/programmes-pages-service/zipball/aea6e368d564a49bc037ca93cceaf0bc57a114b4",
-                "reference": "aea6e368d564a49bc037ca93cceaf0bc57a114b4",
+                "url": "https://api.github.com/repos/bbc/programmes-pages-service/zipball/5295773dbf950a6be90ceac42efc02b1f34b7ada",
+                "reference": "5295773dbf950a6be90ceac42efc02b1f34b7ada",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,7 @@
                 "source": "https://github.com/bbc/programmes-pages-service/tree/redis-service-layer-implementation",
                 "issues": "https://github.com/bbc/programmes-pages-service/issues"
             },
-            "time": "2017-04-11 16:32:44"
+            "time": "2017-04-13 14:09:57"
         },
         {
             "name": "behat/transliterator",
