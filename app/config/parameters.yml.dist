@@ -9,6 +9,7 @@ parameters:
     database_password: developer
     database_server_version: 5.6
     redis_host: localhost
+    cache_adapter: cache.adapter.filesystem
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt

@@ -38,7 +38,7 @@ framework:
         pools:
             cache.programmes:
                 public: true
-                adapter: cache.adapter.filesystem
+                adapter: "%cache_adapter%"
                 default_lifetime: 120
 
 # Twig Configuration
