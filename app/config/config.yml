@@ -34,7 +34,7 @@ framework:
     php_errors:
         log: true
     cache:
-        default_redis_provider: "redis://localhost"
+        default_redis_provider: "redis://%redis_host%"
         pools:
             cache.programmes:
                 public: true
