@@ -12,10 +12,8 @@
             "php71u-mysqlnd",
             "php71u-pecl-apcu",
             "php71u-pdo",
-            "cosmos-ca-chains",
-            "cosmos-ca-tools",
-            "awslogs",
-            "PyYAML"
+            "php71u-pecl-redis",
+            "awslogs"
         ],
         "conf": {
             "comment": "We're targeting c4.xlarge instances",

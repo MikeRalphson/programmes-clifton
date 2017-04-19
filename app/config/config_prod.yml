@@ -4,7 +4,6 @@ imports:
 doctrine:
     orm:
         metadata_cache_driver: apcu
-        result_cache_driver: apcu
         query_cache_driver: apcu
 
 monolog:
@@ -27,3 +26,11 @@ monolog:
             level: debug
         console:
             type:  console
+framework:
+    cache:
+        default_redis_provider: "redis://%redis_host%"
+        pools:
+            cache.programmes:
+                public: true
+                adapter: cache.adapter.redis
+                default_lifetime: 120
