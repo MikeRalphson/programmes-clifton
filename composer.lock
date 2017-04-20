@@ -225,12 +225,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bbc/programmes-pages-service.git",
-                "reference": "5295773dbf950a6be90ceac42efc02b1f34b7ada"
+                "reference": "6a63f9561d96a470356716d6a49c114667bb703e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bbc/programmes-pages-service/zipball/5295773dbf950a6be90ceac42efc02b1f34b7ada",
-                "reference": "5295773dbf950a6be90ceac42efc02b1f34b7ada",
+                "url": "https://api.github.com/repos/bbc/programmes-pages-service/zipball/6a63f9561d96a470356716d6a49c114667bb703e",
+                "reference": "6a63f9561d96a470356716d6a49c114667bb703e",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,7 @@
                 "source": "https://github.com/bbc/programmes-pages-service/tree/redis-service-layer-implementation",
                 "issues": "https://github.com/bbc/programmes-pages-service/issues"
             },
-            "time": "2017-04-13 14:09:57"
+            "time": "2017-04-20 14:59:52"
         },
         {
             "name": "behat/transliterator",
